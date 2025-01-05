@@ -1,5 +1,5 @@
 import sys
-from NetworkSecurity.logging import logger
+from NetworkSecurity.logging.logger import logging
 
 
 class NetworkSecurityException(Exception):
@@ -15,3 +15,10 @@ class NetworkSecurityException(Exception):
             self.file_name, self.lineno, str(self.error_message))
 
 
+if __name__ == "__main__":
+    logging.info("Exnte")
+    try:
+        a = 1/0
+
+    except Exception as e:
+        raise NetworkSecurityException(e, sys)
